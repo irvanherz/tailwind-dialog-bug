@@ -1,14 +1,33 @@
-import './App.css';
+import { Tab } from "@headlessui/react";
+import Modal from "./Modal";
 
-function App() {
+export default function App() {
   return (
-    <div className="App  text-center">
-    {/* Delete the two lines below */}
-    <h1 className="text-4xl font-bold pt-20">This is a starter template for you!</h1>
-    <h1 className="text-2xl font-bold pt-10">All the best with your React + Tailwind project! 😃</h1>
-    <a href="https://github.com/tanmayhinge/react-tailwind-template" target="_blank" rel="noreferrer" className="text-blue-500 underline">Read Documentation for this Template</a>
+    <div>
+      <Tab.Group>
+        <Tab.List>
+          <Tab>
+            {({ selected }) => (
+              <div className={'p-2 ' + (selected ? 'text-red-500 font-bold' : 'text-black')}>Tab 1</div>
+            )}
+          </Tab>
+          <Tab>
+            {({ selected }) => (
+              <div className={'p-2 ' + (selected ? 'text-red-500 font-bold' : 'text-black')}>Tab 2</div>
+            )}
+          </Tab>
+        </Tab.List>
+        <Tab.Panels as="div" className="p-4 border rounded">
+          <Tab.Panel>
+            <div>Tab 1 Content</div>
+            <Modal />
+          </Tab.Panel>
+          <Tab.Panel>
+            <div>Tab 2 Content</div>
+            <Modal />
+          </Tab.Panel>
+        </Tab.Panels>
+      </Tab.Group>
     </div>
   );
 }
-
-export default App;
