@@ -10,7 +10,6 @@ export default function Modal() {
     <>
       <button onClick={handleShow} type="button" className='px-4 py-2 border rounded'>Click to Show Modal</button>
       <Dialog
-        as='div'
         initialFocus={closeButtonRef}
         open={visible}
         onClose={handleHide}
